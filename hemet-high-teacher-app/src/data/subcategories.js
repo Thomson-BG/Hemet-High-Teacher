@@ -1,0 +1,16 @@
+export const subcategories = {
+  Assessment: ['Assessment Subcategory 1', 'Assessment Subcategory 2'],
+  Facilities: ['Facilities Subcategory 1', 'Facilities Subcategory 2'],
+  Athletics: ['Athletics Subcategory 1', 'Athletics Subcategory 2'],
+  'Standards Based Grading': ['SBG Subcategory 1', 'SBG Subcategory 2'],
+  Collaboration: ['Collaboration Subcategory 1', 'Collaboration Subcategory 2'],
+  Discipline: ['Discipline Subcategory 1', 'Discipline Subcategory 2'],
+  Forms: ['Forms Subcategory 1', 'Forms Subcategory 2'],
+  'HHS Information': ['HHS Info Subcategory 1', 'HHS Info Subcategory 2'],
+  'HUSD Information': ['HUSD Info Subcategory 1', 'HUSD Info Subcategory 2'],
+  Instruction: ['Instruction Subcategory 1', 'Instruction Subcategory 2'],
+  Literacy: ['Literacy Subcategory 1', 'Literacy Subcategory 2'],
+  Safety: ['Safety Subcategory 1', 'Safety Subcategory 2'],
+  'Schedules & Calendars': ['Schedules Subcategory 1', 'Schedules Subcategory 2'],
+  Technology: ['Technology Subcategory 1', 'Technology Subcategory 2'],
+};

@@ -42,6 +42,10 @@ select {
   margin-bottom: 20px;
 }
 
+select:not(:last-child) {
+  margin-bottom: 10px;
+}
+
 button {
   background-color: #007bff;
   color: white;

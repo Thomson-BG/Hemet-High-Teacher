@@ -5,11 +5,25 @@ const HomePage = () => {
   const categories = Object.keys(subcategories);
   const [selectedCategory, setSelectedCategory] = useState(categories[0]);
   const [currentSubcategories, setCurrentSubcategories] = useState(subcategories[selectedCategory]);
+  const [selectedSubcategory, setSelectedSubcategory] = useState(currentSubcategories[0].name);
 
   const handleCategoryChange = (event) => {
     const category = event.target.value;
     setSelectedCategory(category);
-    setCurrentSubcategories(subcategories[category]);
+    const newSubcategories = subcategories[category];
+    setCurrentSubcategories(newSubcategories);
+    setSelectedSubcategory(newSubcategories[0].name);
+  };
+
+  const handleSubcategoryChange = (event) => {
+    setSelectedSubcategory(event.target.value);
+  };
+
+  const handleNextClick = () => {
+    const subcategory = currentSubcategories.find(sub => sub.name === selectedSubcategory);
+    if (subcategory && subcategory.url) {
+      window.location.href = subcategory.url;
+    }
   };
 
   return (
@@ -23,14 +37,14 @@ const HomePage = () => {
           </option>
         ))}
       </select>
-      <select>
+      <select onChange={handleSubcategoryChange} value={selectedSubcategory}>
         {currentSubcategories.map((subcategory) => (
-          <option key={subcategory} value={subcategory}>
-            {subcategory}
+          <option key={subcategory.name} value={subcategory.name}>
+            {subcategory.name}
           </option>
         ))}
       </select>
-      <button>NEXT</button>
+      <button onClick={handleNextClick}>NEXT</button>
     </div>
   );
 };

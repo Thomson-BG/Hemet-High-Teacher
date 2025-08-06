@@ -3,6 +3,8 @@ export const subcategories = {
     { name: 'HUSD Assessment Plan B Resources', url: 'https://staff.hemetlearnstogether.org/tableau/' },
     { name: 'CAASPP', url: 'https://www.caaspp.org/' },
     { name: 'ELPAC', url: 'https://www.elpac.org/' },
+    { name: 'ELPAC Resources', url: 'https://drive.google.com/drive/u/0/folders/1Ir3UFzEW6dqUqNEfoAJIyo_MAhqdLRVX' },
+    { name: 'NWEA (MAP)', url: 'https://teach.mapnwea.org/admin/home.seam' },
   ],
   Facilities: [{ name: 'Facilities Subcategory 1', url: '#' }, { name: 'Facilities Subcategory 2', url: '#' }],
   Athletics: [{ name: 'Athletics Subcategory 1', url: '#' }, { name: 'Athletics Subcategory 2', url: '#' }],

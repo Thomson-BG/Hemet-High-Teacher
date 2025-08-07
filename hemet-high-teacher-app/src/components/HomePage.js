@@ -1,18 +1,48 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { subcategories } from '../data/subcategories';
 
 const HomePage = () => {
-  const categories = Object.keys(subcategories);
-  const [selectedCategory, setSelectedCategory] = useState(categories[0]);
-  const [currentSubcategories, setCurrentSubcategories] = useState(subcategories[selectedCategory]);
-  const [selectedSubcategory, setSelectedSubcategory] = useState(currentSubcategories[0].name);
+  const [searchTerm, setSearchTerm] = useState('');
+  const [selectedCategory, setSelectedCategory] = useState(Object.keys(subcategories)[0]);
+
+  const filteredData = useMemo(() => {
+    if (!searchTerm) {
+      return subcategories;
+    }
+
+    const lowercasedFilter = searchTerm.toLowerCase();
+    const filtered = {};
+
+    for (const category in subcategories) {
+      const subcatList = subcategories[category].filter(
+        (sub) =>
+          sub.name.toLowerCase().includes(lowercasedFilter) ||
+          category.toLowerCase().includes(lowercasedFilter)
+      );
+
+      if (subcatList.length > 0) {
+        filtered[category] = subcatList;
+      }
+    }
+    return filtered;
+  }, [searchTerm]);
+
+  const categories = Object.keys(filteredData);
+
+  // Update selectedCategory if it's no longer in the filtered list
+  if (!categories.includes(selectedCategory) && categories.length > 0) {
+      setSelectedCategory(categories[0]);
+  } else if (categories.length === 0 && selectedCategory) {
+      setSelectedCategory('');
+  }
+
+  const currentSubcategories = filteredData[selectedCategory] || [];
+  const [selectedSubcategory, setSelectedSubcategory] = useState(currentSubcategories.length > 0 ? currentSubcategories[0].name : '');
+
 
   const handleCategoryChange = (event) => {
-    const category = event.target.value;
-    setSelectedCategory(category);
-    const newSubcategories = subcategories[category];
-    setCurrentSubcategories(newSubcategories);
-    setSelectedSubcategory(newSubcategories[0].name);
+    setSelectedCategory(event.target.value);
+    setSelectedSubcategory(filteredData[event.target.value][0].name);
   };
 
   const handleSubcategoryChange = (event) => {
@@ -26,10 +56,15 @@ const HomePage = () => {
     }
   };
 
+  const handleSearchChange = (event) => {
+    setSearchTerm(event.target.value);
+  };
+
   return (
     <div>
       <h1>Hemet High Teacher App</h1>
       <p>You need to be signed into your HUSD Google account to use this app.</p>
+      <input type="text" placeholder="Search..." onChange={handleSearchChange} />
       <select onChange={handleCategoryChange} value={selectedCategory}>
         {categories.map((category) => (
           <option key={category} value={category}>

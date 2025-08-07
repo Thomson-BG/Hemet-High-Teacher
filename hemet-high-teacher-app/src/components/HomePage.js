@@ -1,10 +1,21 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import { subcategories } from '../data/subcategories';
 import Cube from './Cube';
 
 const HomePage = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState(Object.keys(subcategories)[0]);
+  const [installPrompt, setInstallPrompt] = useState(null);
+
+  useEffect(() => {
+    const handler = e => {
+      e.preventDefault();
+      setInstallPrompt(e);
+    };
+    window.addEventListener('beforeinstallprompt', handler);
+
+    return () => window.removeEventListener('beforeinstallprompt', handler);
+  }, []);
 
   const filteredData = useMemo(() => {
     if (!searchTerm) {
@@ -61,10 +72,17 @@ const HomePage = () => {
     setSearchTerm(event.target.value);
   };
 
+  const handleInstallClick = () => {
+    if (installPrompt) {
+      installPrompt.prompt();
+    }
+  };
+
   return (
     <div>
       <h1>Hemet High Teacher App</h1>
       <p>You need to be signed into your HUSD Google account to use this app.</p>
+      {installPrompt && <button onClick={handleInstallClick}>Install App</button>}
       <input type="text" placeholder="Search..." onChange={handleSearchChange} />
       <p className="search-description">Search above, using keywords. Or use the category/subcategory drop down menus below.</p>
       <select onChange={handleCategoryChange} value={selectedCategory}>

@@ -85,8 +85,8 @@ button:hover {
 }
 
 .cube {
-  width: 100px;
-  height: 100px;
+  width: 50px;
+  height: 50px;
   position: relative;
   transform-style: preserve-3d;
   animation: rotate 10s infinite linear;
@@ -95,39 +95,39 @@ button:hover {
 
 .face {
   position: absolute;
-  width: 100px;
-  height: 100px;
-  border: 2px solid #ffd700;
-  background-color: rgba(255, 215, 0, 0.2);
+  width: 50px;
+  height: 50px;
+  border: 1px solid #ffd700;
+  background-color: #ffd700;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 2em;
-  color: #ffd700;
+  font-size: 1.5em;
+  color: #1a1a1a;
 }
 
 .front {
-  transform: translateZ(50px);
+  transform: translateZ(25px);
 }
 
 .back {
-  transform: rotateY(180deg) translateZ(50px);
+  transform: rotateY(180deg) translateZ(25px);
 }
 
 .right {
-  transform: rotateY(90deg) translateZ(50px);
+  transform: rotateY(90deg) translateZ(25px);
 }
 
 .left {
-  transform: rotateY(-90deg) translateZ(50px);
+  transform: rotateY(-90deg) translateZ(25px);
 }
 
 .top {
-  transform: rotateX(90deg) translateZ(50px);
+  transform: rotateX(90deg) translateZ(25px);
 }
 
 .bottom {
-  transform: rotateX(-90deg) translateZ(50px);
+  transform: rotateX(-90deg) translateZ(25px);
 }
 
 @keyframes rotate {

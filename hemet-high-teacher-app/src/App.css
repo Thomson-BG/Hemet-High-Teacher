@@ -31,6 +31,13 @@ p {
   margin-bottom: 30px;
 }
 
+.search-description {
+  color: #ffd700;
+  font-size: 0.9em;
+  margin-top: -15px;
+  margin-bottom: 15px;
+}
+
 input[type="text"] {
   width: 100%;
   padding: 10px;
@@ -70,4 +77,70 @@ button {
 
 button:hover {
   background-color: #0056b3;
+}
+
+.cube-container {
+  margin-top: 50px;
+  perspective: 1000px;
+}
+
+.cube {
+  width: 100px;
+  height: 100px;
+  position: relative;
+  transform-style: preserve-3d;
+  animation: rotate 10s infinite linear;
+  margin: 0 auto;
+}
+
+.face {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  border: 2px solid #ffd700;
+  background-color: rgba(255, 215, 0, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2em;
+  color: #ffd700;
+}
+
+.front {
+  transform: translateZ(50px);
+}
+
+.back {
+  transform: rotateY(180deg) translateZ(50px);
+}
+
+.right {
+  transform: rotateY(90deg) translateZ(50px);
+}
+
+.left {
+  transform: rotateY(-90deg) translateZ(50px);
+}
+
+.top {
+  transform: rotateX(90deg) translateZ(50px);
+}
+
+.bottom {
+  transform: rotateX(-90deg) translateZ(50px);
+}
+
+@keyframes rotate {
+  from {
+    transform: rotateX(0deg) rotateY(0deg);
+  }
+  to {
+    transform: rotateX(360deg) rotateY(360deg);
+  }
+}
+
+.attribution {
+  margin-top: 20px;
+  font-size: 0.8em;
+  color: #888;
 }

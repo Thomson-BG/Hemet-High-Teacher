@@ -1,5 +1,6 @@
 import React, { useState, useMemo } from 'react';
 import { subcategories } from '../data/subcategories';
+import Cube from './Cube';
 
 const HomePage = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -65,6 +66,7 @@ const HomePage = () => {
       <h1>Hemet High Teacher App</h1>
       <p>You need to be signed into your HUSD Google account to use this app.</p>
       <input type="text" placeholder="Search..." onChange={handleSearchChange} />
+      <p className="search-description">Search above, using keywords. Or use the category/subcategory drop down menus below.</p>
       <select onChange={handleCategoryChange} value={selectedCategory}>
         {categories.map((category) => (
           <option key={category} value={category}>
@@ -80,6 +82,8 @@ const HomePage = () => {
         ))}
       </select>
       <button onClick={handleNextClick}>NEXT</button>
+      <Cube />
+      <p className="attribution">Thomson innovations</p>
     </div>
   );
 };

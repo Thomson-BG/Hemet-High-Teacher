@@ -1,5 +1,6 @@
 import React, { useState, useMemo } from 'react';
 import { subcategories } from '../data/subcategories';
+import Cube from './Cube';
 
 const HomePage = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -81,6 +82,8 @@ const HomePage = () => {
         ))}
       </select>
       <button onClick={handleNextClick}>NEXT</button>
+      <Cube />
+      <p className="attribution">Thomson innovations</p>
     </div>
   );
 };

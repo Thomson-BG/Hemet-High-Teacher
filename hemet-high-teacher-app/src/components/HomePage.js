@@ -1,6 +1,7 @@
 import React, { useState, useMemo } from 'react';
 import { subcategories } from '../data/subcategories';
-import Cube from './Cube';
+import CyberpunkMetal from './CyberpunkMetal';
+import PWAInstallButton from './PWAInstallButton';
 
 const HomePage = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -63,6 +64,7 @@ const HomePage = () => {
 
   return (
     <div>
+      <PWAInstallButton />
       <h1>Hemet High Hub App</h1>
       <p>You need to be signed into your HUSD Google account to use this app.</p>
       <input type="text" placeholder="Search..." onChange={handleSearchChange} />
@@ -82,7 +84,7 @@ const HomePage = () => {
         ))}
       </select>
       <button onClick={handleNextClick}>NEXT</button>
-      <Cube />
+      <CyberpunkMetal />
       <p className="attribution">Thomson innovations</p>
     </div>
   );

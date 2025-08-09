@@ -63,7 +63,7 @@ const HomePage = () => {
 
   return (
     <div>
-      <h1>Hemet High Teacher App</h1>
+      <h1>Hemet High Hub App</h1>
       <p>You need to be signed into your HUSD Google account to use this app.</p>
       <input type="text" placeholder="Search..." onChange={handleSearchChange} />
       <p className="search-description">Search above, using keywords. Or use the category/subcategory drop down menus below.</p>

@@ -1,0 +1,72 @@
+.cyberpunk-metal-container {
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cyberpunk-metal-svg {
+  max-width: 100%;
+  height: auto;
+  transition: transform 0.3s ease;
+}
+
+.cyberpunk-metal-svg:hover {
+  transform: scale(1.05);
+}
+
+.engraved-letter {
+  text-shadow: 
+    1px 1px 2px rgba(0, 0, 0, 0.8),
+    -1px -1px 1px rgba(255, 255, 255, 0.1);
+}
+
+.current-line {
+  opacity: 0.7;
+}
+
+.spark {
+  animation-fill-mode: forwards;
+}
+
+.spark-1 {
+  animation: sparkTrigger 10s infinite;
+}
+
+.spark-2 {
+  animation: sparkTrigger 12s infinite 4s;
+}
+
+.spark-3 {
+  animation: sparkTrigger 15s infinite 8s;
+}
+
+@keyframes sparkTrigger {
+  0%, 98% { opacity: 0; }
+  1%, 2% { opacity: 1; }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .cyberpunk-metal-svg {
+    transform: none !important;
+    transition: none !important;
+  }
+  
+  .cyberpunk-metal-svg:hover {
+    transform: none !important;
+  }
+  
+  .current-line {
+    animation: none !important;
+  }
+  
+  .spark {
+    animation: none !important;
+    opacity: 0 !important;
+  }
+  
+  .cyberpunk-metal-svg animate {
+    animation-duration: 0s !important;
+  }
+}

@@ -3,9 +3,9 @@ import '@testing-library/jest-dom';
 import HomePage from '../components/HomePage';
 
 // Mock the child components
-jest.mock('../components/CyberpunkMetal', () => {
-  return function MockCyberpunkMetal() {
-    return <div data-testid="cyberpunk-metal">Cyberpunk Metal Component</div>;
+jest.mock('../components/RotatingCube', () => {
+  return function MockRotatingCube() {
+    return <div data-testid="rotating-cube">Rotating Cube Component</div>;
   };
 });
 
@@ -53,12 +53,12 @@ describe('HomePage Component', () => {
     expect(nextButton).toBeInTheDocument();
   });
 
-  test('renders CyberpunkMetal component', () => {
+  test('renders RotatingCube component', () => {
     render(<HomePage />);
     
-    const cyberpunkMetal = screen.getByTestId('cyberpunk-metal');
+    const rotatingCube = screen.getByTestId('rotating-cube');
     
-    expect(cyberpunkMetal).toBeInTheDocument();
+    expect(rotatingCube).toBeInTheDocument();
   });
 
   test('renders PWAInstallButton component', () => {

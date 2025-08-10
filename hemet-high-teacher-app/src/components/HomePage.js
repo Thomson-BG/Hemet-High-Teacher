@@ -1,6 +1,6 @@
 import React, { useState, useMemo } from 'react';
 import { subcategories } from '../data/subcategories';
-import CyberpunkMetal from './CyberpunkMetal';
+import RotatingCube from './RotatingCube';
 import PWAInstallButton from './PWAInstallButton';
 
 const HomePage = () => {
@@ -84,7 +84,7 @@ const HomePage = () => {
         ))}
       </select>
       <button onClick={handleNextClick}>NEXT</button>
-      <CyberpunkMetal />
+      <RotatingCube />
       <p className="attribution">Thomson innovations</p>
     </div>
   );

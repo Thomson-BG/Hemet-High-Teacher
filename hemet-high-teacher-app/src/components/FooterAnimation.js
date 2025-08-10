@@ -1,6 +1,5 @@
 import React from 'react';
 import './FooterAnimation.css';
-import 'animate.css';
 
 const FooterAnimation = () => {
   return (

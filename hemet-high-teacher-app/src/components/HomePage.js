@@ -1,6 +1,6 @@
 import React, { useState, useMemo } from 'react';
 import { subcategories } from '../data/subcategories';
-import RotatingCube from './RotatingCube';
+import FooterAnimation from './FooterAnimation';
 import PWAInstallButton from './PWAInstallButton';
 
 const HomePage = () => {
@@ -84,8 +84,7 @@ const HomePage = () => {
         ))}
       </select>
       <button onClick={handleNextClick}>NEXT</button>
-      <RotatingCube />
-      <p className="attribution">Thomson innovations</p>
+      <FooterAnimation />
     </div>
   );
 };

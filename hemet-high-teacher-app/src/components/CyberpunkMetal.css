@@ -1,0 +1,10 @@
+.cyberpunk-metal-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.cyberpunk-metal-svg {
+  filter: drop-shadow(0 0 10px #00ff00);
+}

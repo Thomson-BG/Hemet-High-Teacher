@@ -2,6 +2,7 @@ import React, { useState, useMemo } from 'react';
 import { subcategories } from '../data/subcategories';
 import FooterAnimation from './FooterAnimation';
 import PWAInstallButton from './PWAInstallButton';
+import CyberpunkMetal from './CyberpunkMetal';
 
 const HomePage = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -84,6 +85,7 @@ const HomePage = () => {
         ))}
       </select>
       <button onClick={handleNextClick}>NEXT</button>
+      <CyberpunkMetal />
       <FooterAnimation />
     </div>
   );
